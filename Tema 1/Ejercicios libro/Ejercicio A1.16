@@ -1,0 +1,10 @@
+Algoritmo dieciseis
+	num<-0
+	Escribir "Introduce un número"
+	Leer num
+	Si num<=-1 Entonces
+		Escribir num," Es negativo"
+	SiNo
+		Escribir num," Es Postivo"
+	Fin Si
+FinAlgoritmo

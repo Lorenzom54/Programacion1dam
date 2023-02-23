@@ -1,0 +1,16 @@
+Algoritmo Dieciocho
+	num<-0
+	Escribir "Introducir un número"
+	Leer num
+	
+	Si num<=10 Entonces
+		escribir num+num
+		Escribir num-num	
+	SiNo
+		Escribir num*num
+		Escribir num/num
+	Fin Si
+	
+	
+	
+FinAlgoritmo

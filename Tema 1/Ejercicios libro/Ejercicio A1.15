@@ -1,0 +1,12 @@
+Algoritmo quince
+	num<-0
+	Escribir "Introduce un número"
+	Leer num
+	Si num<=20 Entonces
+		Escribir num," Es menor que 20"
+	SiNo
+		Escribir num," Es mayor que 20"
+	Fin Si
+	
+	
+FinAlgoritmo

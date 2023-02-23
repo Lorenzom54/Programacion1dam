@@ -1,0 +1,14 @@
+Algoritmo A120
+	definir anio como entero
+	
+	Escribir "Introduce un año: "
+	leer anio
+	
+	si (anio%4=0 y anio%100<>0) o (anio%100=0 y anio%400=0)Entonces
+		escribir "El año es bisiesto"
+		
+	sino 
+			Escribir "El año NO es bisiesto"
+	FinSi
+	
+FinAlgoritmo

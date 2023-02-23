@@ -1,0 +1,8 @@
+1) Falso 
+2) Verdadero
+3) Verdadero
+4) Verdadero
+5) Falso
+6) Verdadero
+7) Verdadero
+8) Falso

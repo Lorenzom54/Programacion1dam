@@ -1,0 +1,21 @@
+Algoritmo prueba
+	Definir nombre Como Caracter
+	definir edad Como Entero
+	
+	Escribir "Cual es tu nombre"
+	leer nombre
+	Escribir "Introduce tu edad:"
+	Leer edad
+	
+	
+	
+	Si edad>=18 y nombre="María" Entonces
+		Escribir " Maria es mayor de edad"
+	SiNo
+		si edad<18 y nombre es="Andrés" Entonces
+			Escribir "Andrés es menor de edad"
+		SiNo
+			Escribir "No se reconoce la persona"
+		FinSi
+	Fin Si
+FinAlgoritmo
