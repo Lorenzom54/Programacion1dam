@@ -9,9 +9,7 @@ public class Validaciones {
     //Comprobación de nombre y apellidos
 
     /**
-     * En la primera parte valida que no se se quede vacio.
-     * En la parte media valida que el rango sea entre A y Z.
-     * En la parte final valida que introduzcas caracteres especiales.
+     * Valida que la logitud sea correcta y que los caracteres introducidos sean los correctos.
      * @param palabra
      * @return Retorna la palabra correcta
      */
@@ -123,13 +121,14 @@ public class Validaciones {
         return true;
     }
 
+    //Comprobacion del telefono
+
     /**
-     *
+     * Valida la longitud del numero sea correcta y que sea Nacional.
      * @param telefono
      * @return Telefono validado
      */
 
-    //Comprobacion del telefono
     public static boolean Comprobartelefono(String telefono) {
         telefono = telefono.replace(" ", "");
 
@@ -154,6 +153,14 @@ public class Validaciones {
     }
 
     //Comprobación de la fecha de nacimiento
+
+    /**
+     * Valida que la fecha se formato dd/mm/aaaa y que tambien contenga (_), valida que la persona sea mayor de edad.
+     * Despues comprueba que el año sea bisiesto.
+     * @param fechaNacimiento
+     * @return Fecha Correcta
+     */
+
     public static boolean Comprobarfecha(String fechaNacimiento) {
         if (fechaNacimiento.equals("")) {
             return false;
@@ -205,13 +212,19 @@ public class Validaciones {
         // Verificar si un año es bisiesto (divisible entre 4, pero no divisible entre 100, a menos que también sea divisible entre 400)
         return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
     }
+
     //Comprobacion Frase de control
-    //totalpal,totalCod, totalCodnum y codigoNumericoTotol estan relacionadas con Comprobar frase
+
     public static int totalPal;
     public static int totalCod;
     public static int totalCodNum;
     public static String codigoNumericoTotal;
-    //Comprobacion de la frase de contro
+
+    /**
+     * Valida los 4 grupos de palabras y recoge la primera palabra de cada grupo. Despues pasa cada palabra a codigo ASCCI, los suma y lo divide entre el grupo de palabras que hay.
+     * @param fraseControl
+     * @return Frase de control correcta
+     */
     public static boolean Comprobarfrase(String fraseControl) {
 
         fraseControl = fraseControl.toLowerCase();
@@ -249,7 +262,15 @@ public class Validaciones {
 
         return true;
     }
+
     //Comprobacion del numero de habitaciones disponibles en ese momento
+
+    /**
+     * Valida que el maximo de de personas por reserva sean 4.
+     * @param nReservas
+     * @return Habitaciones correctas
+     */
+
     public static boolean Comprobarnpersonas(String nReservas) {
         if (nReservas.length() == 0) {
             return false;
@@ -262,7 +283,15 @@ public class Validaciones {
         }
         return true;
     }
+
     //Comprobación de la fecha de entrada
+
+    /**
+     * Realiza la misma validacion que la anterior pero evita que se puedan solapar fechas.
+     * @param fechaEntrada
+     * @return Fecha entrada Correcta
+     */
+
     public static boolean ComprobarfechaReservaEntrada(String fechaEntrada) {
         String dia;
         String mes;
@@ -308,7 +337,15 @@ public class Validaciones {
         }
         return true;
     }
+
     //Comprobación de la fecha de Salida
+
+    /**
+     * Hace lo mismo que la validacion anterior pero registrando la de salida.
+     * @param fechaSalida
+     * @return Fecha salida Correcta
+     */
+
     public static boolean ComprobarfechaReservaSalida(String fechaSalida) {
         String dia;
         String mes;
@@ -354,21 +391,15 @@ public class Validaciones {
         }
         return true;
     }
-    //Comprobacion de las opcines de los menus
 
-    public static boolean ComprobarOpcion(String nOpcion) {
-        if (nOpcion.length() == 0) {
-            return false;
-        } else {
-            for (int i = 0; i < nOpcion.length(); i++) {
-                if (nOpcion.charAt(i) < '1' || nOpcion.charAt(i) > '2') {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
     //Comprobación de la tarjeta de credito
+
+    /**
+     * Se comprueba el numero de digitos introducidos, se identifica por los primeros digitos.
+     * @param numTarjeta
+     * @return Numero de tarjeta correcto
+     */
+
     public static boolean TipoTarjeta(String numTarjeta) {
         if (numTarjeta.length() < 15){
             System.out.println("Una tarjeta valida debe tener 16 digitos");
@@ -416,6 +447,4 @@ public class Validaciones {
 
         return true;
     }
-
-
 }
