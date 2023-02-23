@@ -123,7 +123,11 @@ public class Validaciones {
         return true;
     }
 
-    
+    /**
+     *
+     * @param telefono
+     * @return Telefono validado
+     */
 
     //Comprobacion del telefono
     public static boolean Comprobartelefono(String telefono) {
