@@ -6,9 +6,13 @@ public class GestorClientes {
     ArrayList<Cliente> listadoClientes =new ArrayList<>();
 
 
+    public GestorClientes(){}
+    /*
     public GestorClientes(ArrayList<Cliente> mostrarClientes) {
         generarClientes();
     }
+
+     */
 
     public boolean buscarCliente(Cliente cliente){
         for (Cliente miCliente : listadoClientes) {
@@ -19,15 +23,19 @@ public class GestorClientes {
         return false;
     }
 
-    public void agregarCliente(){
-        listadoClientes.add(new Cliente("Abde","belghiti","12347899Y"));
+    public void agregarCliente(Cliente cliente){
+        this.listadoClientes.add(cliente);
     }
 
     public void mostrarClientes(){
         System.out.println(listadoClientes);
     }
 
+    public void obtenerCliente(){
 
+    }
+
+/*
     public void generarClientes(){
         listadoClientes.add(new Cliente("Abde", "belguitti","29597344R"));
 
@@ -35,4 +43,6 @@ public class GestorClientes {
 
         listadoClientes.add(new Cliente("Jorge","Carmona","45454545T"));
     }
+
+ */
 }

@@ -9,9 +9,9 @@ public class Cliente {
 
     String email;
 
-    int Telefono;
+    String telefono;
 
-    String dni;
+
 
     String fechaNacimiento;
 
@@ -19,22 +19,22 @@ public class Cliente {
 
     //Constructores
 
+    public Cliente (){}
 
-
-    public Cliente(String nombre, String apellidos, String email, int telefono, String dni, String fechaNacimiento, String codigoAcceso) {
+    public Cliente(String nombre, String apellidos, String email, String telefono, String fechaNacimiento, String codigoAcceso) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
-        Telefono = telefono;
-        this.dni = dni;
+        this.telefono = telefono;
+
         this.fechaNacimiento = fechaNacimiento;
         CodigoAcceso = codigoAcceso;
     }
 
-    public Cliente(String nombre, String apellidos, String dni) {
+    public Cliente(String nombre, String apellidos, String telefono) {
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.dni = dni;
+        this.telefono = telefono;
     }
 
     //GetterSetter
@@ -64,21 +64,15 @@ public class Cliente {
         this.email = email;
     }
 
-    public int getTelefono() {
-        return Telefono;
+    public String getTelefono() {
+        return telefono;
     }
 
     public void setTelefono(int telefono) {
-        Telefono = telefono;
+        telefono = telefono;
     }
 
-    public String getDni() {
-        return dni;
-    }
 
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
 
     public String getFechaNacimiento() {
         return fechaNacimiento;
@@ -105,8 +99,7 @@ public class Cliente {
                 "nombre='" + nombre + '\'' +
                 ", apellidos='" + apellidos + '\'' +
                 ", email='" + email + '\'' +
-                ", Telefono=" + Telefono +
-                ", dni='" + dni + '\'' +
+                ", telefono='" + telefono + '\'' +
                 ", fechaNacimiento='" + fechaNacimiento + '\'' +
                 ", CodigoAcceso='" + CodigoAcceso + '\'' +
                 '}';
@@ -115,7 +108,7 @@ public class Cliente {
     public void infoBasica(){
         System.out.println(this.nombre);
         System.out.println(this.apellidos);
-        System.out.println(this.dni);
+        
 
     }
 

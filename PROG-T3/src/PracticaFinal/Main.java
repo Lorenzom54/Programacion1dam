@@ -9,8 +9,7 @@ package PracticaFinal;
  */
 
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class Main {
@@ -23,7 +22,7 @@ public class Main {
     public static void main(String[] args) {
         GestorHabitaciones gesH = new GestorHabitaciones(listaHabitaciones);
         GestorFaqs gesF = new GestorFaqs(listaPreguntas);
-        GestorClientes gesC = new GestorClientes(mostrarClientes);
+        GestorClientes gesC = new GestorClientes();
         GestorReservas gesR = new GestorReservas(listaReservas);
 
 
@@ -49,6 +48,7 @@ public class Main {
         do {
 
             boolean salirAplicacion = false;
+            Cliente nuevo;
 
             //Mostramos Menu
             System.out.println("*************************");
@@ -136,6 +136,9 @@ public class Main {
                             System.out.println("Frase no valida");
                         }
                     }
+
+                    nuevo = new Cliente(nombre, apellidos, email, telefono, fechaNacimiento, fraseControl);
+                    gesC.agregarCliente(nuevo);
                     break;
 
                 //Al pulsar en el 2 tendremos que introducir el EMAIL de nuevo
@@ -147,12 +150,12 @@ public class Main {
                         System.out.println("Login de Usuario");
                         System.out.println("****************");
 
-                        System.out.println("Introduce el Email de registro: ");
+                        System.out.println("Introduce el Email de registro: (lorenzo)");
                         emailregistro = sc.nextLine();
-                        System.out.println("Introduce la contraseña: ");
+                        System.out.println("Introduce la contraseña: (golfo)");
                         fraseControlRegistro = sc.nextLine();
 
-                        if (Validaciones.Comprobaremail(emailregistro) && Validaciones.Comprobarfrase(fraseControlRegistro)) {
+                        if ((Validaciones.Comprobaremail(emailregistro) && Validaciones.Comprobarfrase(fraseControlRegistro)) || (emailregistro.equals("lorenzo") && fraseControlRegistro.equals("golfo"))) {
                         } else {
                             System.out.println("Usuario no registrado\n");
                             break;
@@ -207,11 +210,24 @@ public class Main {
                                         }
                                     }
                                     // Se muestran las las habitaciones disponibles
-                                    System.out.println("Tenemos disponibles para esa fecha:");
-                                    System.out.println("Opcion: " + gesH.getListaHabitaciones().get(0).getId());
-                                    System.out.println("Habitación " + gesH.getListaHabitaciones().get(0).getNombre() + " para " + gesH.getListaHabitaciones().get(4).getMax_personas() + " personas.");
-                                    System.out.println("\nOpcion: " + gesH.getListaHabitaciones().get(1).getId());
-                                    System.out.println("Habitacion " + gesH.getListaHabitaciones().get(1).getNombre() + " para " + gesH.getListaHabitaciones().get(2).getMax_personas() + " personas.");
+                                    if (nReservas.equals("1")){
+                                        System.out.println("1. " + gesH.getListaHabitaciones().get(0));
+                                        System.out.println("2. " + gesH.getListaHabitaciones().get(1));
+                                    }
+
+                                    if (nReservas.equals("2")){
+                                        System.out.println("1. " + gesH.getListaHabitaciones().get(2));
+                                        System.out.println("2. " + gesH.getListaHabitaciones().get(3));
+                                    }
+                                    if (nReservas.equals("3")){
+                                        System.out.println("1. " + gesH.getListaHabitaciones().get(4));
+                                        System.out.println("2. " + gesH.getListaHabitaciones().get(5));
+                                    }
+
+                                    if (nReservas.equals("4")){
+                                        System.out.println("1. " + gesH.getListaHabitaciones().get(6));
+                                        System.out.println("2. " + gesH.getListaHabitaciones().get(7));
+                                    }
 
                                     //Introducir un numero valido
                                     while (true) {
@@ -224,6 +240,7 @@ public class Main {
                                             System.out.println("Introduce una opción valida");
                                         }
                                     }
+
                                     break;
 
                                 case "2":
@@ -264,8 +281,6 @@ public class Main {
                                     }
                                     break;
 
-
-
                                 case "3":
 
                                     boolean salirPago = false;
@@ -296,20 +311,26 @@ public class Main {
                                                             System.out.println("No se ha podido validar la tarjeta");
                                                         }
                                                     }
+
+                                                    Calendar calendar = new GregorianCalendar(TimeZone.getTimeZone("GMT+1"));
+                                                    int dia = calendar.get(Calendar.DAY_OF_MONTH);
+                                                    int mes = calendar.get(Calendar.MONTH) + 1;
+                                                    int anyo = calendar.get(Calendar.YEAR);
+
                                                     System.out.println("\n*****************************");
                                                     System.out.println("***********FACTURA***********");
-                                                    System.out.println("*****************************");
+                                                    System.out.println("*****************************\n");
                                                     //Se muestra la factura, junto a los datos del cliente
                                                     System.out.println("Datos del Cliente: ");
-                                                    System.out.println("Nombre: " + gesC.listadoClientes.get(0).getNombre());
-                                                    System.out.println("DNI: " + gesC.listadoClientes.get(1).getDni());
-                                                    System.out.println("Fecha de Factura: " + gesR.getListaReservas().get(0).getFecha_entrada());
+                                                    System.out.println(gesC.listadoClientes);
+                                                    System.out.println("Fecha de Factura: " + dia + "/" + mes + "/" + anyo);
                                                     int codigoaleatorio = (int) (Math.random() * 10000);
                                                     System.out.println("Codigo de factura: " + codigoaleatorio);
+                                                    System.out.println("Nombre de la Habitación: " + gesH.getListaHabitaciones().get(0));
                                                     System.out.println("Descripción de la estancia:");
                                                     System.out.println("La estancia contará con: " + nReservas + " personas.");
-                                                    System.out.println("A nombre de " + gesH.getListaHabitaciones().get(0).getNombre() + " con DNI " + gesC.listadoClientes.get(1).getDni());
-                                                    System.out.println("Su precio con IVA incluido sera de " + gesH.getListaHabitaciones().get(3).getPrecio());
+                                                    System.out.println("A nombre de: " + gesC.listadoClientes.get(0).getNombre() + ", con teléfono: " + gesC.listadoClientes.get(0).getTelefono());
+                                                    System.out.println("Su precio con IVA (21%) incluido sera de " + listaHabitaciones.get(0).getPrecio()*1.21);
                                                     System.out.println("\nPAGADO CON TARJETA DE CREDITO");
                                                     System.out.println("\nGRACIAS");
                                                     salirPago = true;
