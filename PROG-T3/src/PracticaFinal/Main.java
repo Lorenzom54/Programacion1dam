@@ -17,6 +17,7 @@ public class Main {
     public static ArrayList<Habitacion> listaHabitaciones = new ArrayList<>();
     public static ArrayList<Reservas> listaReservas = new ArrayList<>();
     public static ArrayList<Faqs> listaPreguntas = new ArrayList<>();
+
     public static ArrayList<Cliente> mostrarClientes = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -269,7 +270,6 @@ public class Main {
                                                 case "3":
                                                     System.out.println(gesF.getListapreguntas().get(2).getRespuesta());
                                                     break;
-
                                                 case "0":
                                                     System.out.println("Saliendo.....");
                                                     salirPreguntas = true;
