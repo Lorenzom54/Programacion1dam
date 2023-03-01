@@ -60,7 +60,7 @@ public class Validaciones {
      */
     public static boolean Comprobaremail(String email) {
         email = email.toUpperCase();
-        int contadorarroba = 0;
+        int contadorArroba = 0;
         email = email.trim();
         String subemail;
         String subpunto;
@@ -80,13 +80,13 @@ public class Validaciones {
                 return false;
             }
             if (email.charAt(i) == '@') {
-                contadorarroba++;
+                contadorArroba++;
             }
         }
 
         for (int i = 0; i < email.length(); i++) {
             //Verificamos que la arroba este presente y no sea mas de 1
-            if (contadorarroba != 1 || (email.charAt(0) == '@')) {
+            if (contadorArroba != 1 || (email.charAt(0) == '@')) {
                 System.out.println("Introduce algo antes de la arroba");
                 return false;
             }
