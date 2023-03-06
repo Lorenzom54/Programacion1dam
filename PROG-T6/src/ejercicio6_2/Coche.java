@@ -1,6 +1,6 @@
 package ejercicio6_2;
 
-public class Coche extends Vehiculo{
+public abstract class Coche extends Vehiculo{
     //Atributos
     int numRuedas;
 
@@ -22,4 +22,6 @@ public class Coche extends Vehiculo{
         super.mostrar();
         System.out.println("Numero de rudas:" + numRuedas);
     }
+
+    public abstract void correr();
 }
